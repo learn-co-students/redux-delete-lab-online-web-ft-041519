@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 class BandInput extends Component {
 
-  state = {
-    bandName: ''
+  constructor() {
+    super();
+    this.state = {
+      text: '',
+    };
   }
 
   handleOnChange(event) {
     this.setState({
-      bandName: event.target.value,
+      text: event.target.value,
     });
   }
 
   handleOnSubmit(event) {
     event.preventDefault();
-    this.props.addBand(this.state.bandName);
+    this.props.addBand(this.state);
     this.setState({
-      bandName: '',
+      text: '',
     });
   }
+
 
   render() {
     return (
@@ -35,4 +40,8 @@ class BandInput extends Component {
   }
 };
 
-export default BandInput;
+const mapDispatchToProps = dispatch => ({
+  addBand: formData => dispatch({ type: "ADD_BAND", name: formData })
+})
+
+export default connect(null, mapDispatchToProps)(BandInput);
