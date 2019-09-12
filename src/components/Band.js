@@ -21,7 +21,7 @@ const Band = props => {
   return (
     <div>
       <li>
-      <span>{props.band.text}</span><button onClick={() => props.delete(props.band.id)}>DELETE</button>
+      <span>{props.band.name}</span><button onClick={() => props.delete(props.band.id)}>DELETE</button>
       </li>
     </div>
   )
