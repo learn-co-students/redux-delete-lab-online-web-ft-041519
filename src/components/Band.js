@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class Band extends Component {
 
   render() {
+    debugger
     return(
       <div>
         <li>
