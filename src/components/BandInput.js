@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
 
 class BandInput extends Component {
 
@@ -14,6 +15,7 @@ class BandInput extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
+    console.log(this.props)
     this.props.addBand(this.state.bandName);
     this.setState({
       bandName: '',
@@ -35,5 +37,8 @@ class BandInput extends Component {
   }
 };
 
+const mapDispatchToProps = dispatch => ({
+  addBand: formData => dispatch({ type: 'ADD_BAND', payload: bandName })
+})
 
-export default BandInput;
+export default connect(null, mapDispatchToProps)(BandInput);
