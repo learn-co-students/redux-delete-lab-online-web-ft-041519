@@ -1,14 +1,13 @@
 import React from 'react';
 
 const Band = props => {
-  console.log("info 2:", props.bands)
-  const bands = props.bands.map((band, index) => {
-    return <li key={index}>{band}</li>;
-  });
 
   return (
     <div>
-      {bands}
+      <li>
+      <span> {props.name} </span> <button onClick={() => props.deleteBand(props.id)}>DELETE</button>
+      </li>
+      
     </div>
   );
 
